@@ -1,0 +1,74 @@
+  const renderUsageTypeStep = () => {
+    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    };
+
+    return (
+      <div className="w-full text-center">
+        <h2 className="text-[32px] font-bold mb-8 text-gray-800">Is this for personal use or for a business?</h2>
+        
+        <div className="flex flex-wrap gap-4 mx-auto justify-center">
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.usageType === 'personal' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="usageType" 
+                value="personal"
+                checked={formData.usageType === 'personal'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.usageType === 'personal' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.usageType === 'personal' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Personal (home/residential)</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.usageType === 'business' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="usageType" 
+                value="business"
+                checked={formData.usageType === 'business'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.usageType === 'business' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.usageType === 'business' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Business (office, fleet, customer use)</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.usageType === 'both' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="usageType" 
+                value="both"
+                checked={formData.usageType === 'both'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.usageType === 'both' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.usageType === 'both' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Both</span>
+          </label>
+        </div>
+      </div>
+    );
+  };

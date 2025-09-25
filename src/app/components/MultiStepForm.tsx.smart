@@ -1,0 +1,74 @@
+  const renderSmartFeaturesStep = () => {
+    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    };
+
+    return (
+      <div className="w-full text-center">
+        <h2 className="text-[32px] font-bold mb-8 text-gray-800">Do you want smart charging features?</h2>
+        
+        <div className="flex flex-wrap gap-4 mx-auto justify-center">
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.smartFeatures === 'yes' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="smartFeatures" 
+                value="yes"
+                checked={formData.smartFeatures === 'yes'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.smartFeatures === 'yes' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.smartFeatures === 'yes' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Yes (Wi-Fi/app control, usage tracking)</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.smartFeatures === 'no' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="smartFeatures" 
+                value="no"
+                checked={formData.smartFeatures === 'no'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.smartFeatures === 'no' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.smartFeatures === 'no' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">No, just standard charging is fine</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.smartFeatures === 'not-sure' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="smartFeatures" 
+                value="not-sure"
+                checked={formData.smartFeatures === 'not-sure'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.smartFeatures === 'not-sure' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.smartFeatures === 'not-sure' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Not sure yet</span>
+          </label>
+        </div>
+      </div>
+    );
+  };

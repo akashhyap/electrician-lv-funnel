@@ -1,0 +1,74 @@
+  const renderTimelineStep = () => {
+    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    };
+
+    return (
+      <div className="w-full text-center">
+        <h2 className="text-[32px] font-bold mb-8 text-gray-800">How soon are you planning to install?</h2>
+        
+        <div className="flex flex-wrap gap-4 mx-auto justify-center">
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.timeline === '2-weeks' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="timeline" 
+                value="2-weeks"
+                checked={formData.timeline === '2-weeks'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.timeline === '2-weeks' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.timeline === '2-weeks' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Within the next 2 weeks</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.timeline === '1-2-months' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="timeline" 
+                value="1-2-months"
+                checked={formData.timeline === '1-2-months'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.timeline === '1-2-months' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.timeline === '1-2-months' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">In the next 1–2 months</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.timeline === 'researching' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="timeline" 
+                value="researching"
+                checked={formData.timeline === 'researching'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.timeline === 'researching' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.timeline === 'researching' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Just researching for now</span>
+          </label>
+        </div>
+      </div>
+    );
+  };

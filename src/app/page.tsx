@@ -1,102 +1,87 @@
 import Image from "next/image";
+import MultiStepForm from "./components/MultiStepForm";
+import SubscriptionInfo from "./components/SubscriptionInfo";
+import BonusesInfo from "./components/BonusesInfo";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex flex-col items-center min-h-screen bg-white">
+      {/* Notification Banner */}
+      <div className="w-full bg-[#fef9e7] text-center py-2 px-4 flex items-center justify-center gap-2 md:gap-4 text-xs md:text-sm">
+        <span className="text-gray-600 hidden md:inline">•</span>
+        <p>Free EV charging consultation - Schedule yours today!</p>
+        <span className="text-gray-600 hidden md:inline">•</span>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Main Content Container */}
+      <div className="max-w-4xl w-full px-3 sm:px-6 py-4 md:py-8 flex flex-col items-center">
+        {/* Multi-Step Form Section */}
+        <div className="w-full mb-8">
+          <MultiStepForm />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+        {/* Subscription Info Component */}
+        <SubscriptionInfo />
+
+        {/* Bonuses Info Component */}
+        <BonusesInfo />
+
+        {/* Call to Action Button */}
+        {/* <div className="w-full text-center mb-8">
+          <button className="bg-[#4CAF50] hover:bg-green-700 text-white font-bold py-3 px-8 rounded flex items-center justify-center gap-2 mx-auto">
+            Yes, upgrade 
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </button>
+          <p className="text-sm mt-2">Subscription costs £9.99</p>
+        </div> */}
+
+       
+
+        {/* Bottom Section - Additional Product */}
+        <div className="w-full py-8 md:py-16 border-t border-gray-200">
+          {/* <h3 className="text-xl font-bold text-center mb-4 text-gray-300">Introducing</h3> */}
+          <div className="flex flex-col md:flex-row gap-6 items-center">
+            <div className="w-full md:w-1/2 px-2 md:px-0">
+              <h3 className="font-bold text-xl md:text-2xl mb-3 md:mb-5 text-gray-500 text-center md:text-left">
+                "EMPOWER YOUR EV CHARGING, THE ULTIMATE DAILY MONITORING TRACKER"
+              </h3>
+              <p className="text-gray-600 text-sm md:text-base">
+                A full companion app that helps you optimize your charging schedule, track energy usage, and maintain your EV charger for maximum efficiency and the health and lifespan you want the most.
+              </p>
+            </div>
+            <div className="w-full md:w-1/2 relative h-64 md:h-80 mt-6 md:mt-0">
+              <div className="relative h-full w-full">
+                <Image 
+                  src="/ev-app-mockup.svg"
+                  alt="EV Charging App Mockup"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+       {/* Terms Text */}
+       <div className="w-full text-xs md:text-sm text-gray-600 space-y-1 md:space-y-2 mb-8 md:mb-12 px-4 md:px-0">
+          <p className="text-center">
+            By submitting your information, you agree to receive communications about EV charging solutions.
+          </p>
+          <p className="text-center">
+            We value your privacy and will never share your details with third parties.
+          </p>
+          <p className="text-center text-[8px] md:text-[10px]">
+            (You can unsubscribe anytime by clicking the link in our emails)
+          </p>
+        </div>
+
+      {/* Footer */}
+      <footer className="w-full bg-[#1f2937] text-white text-[10px] md:text-xs py-3 md:py-4 text-center mt-auto">
+        <p>2025 © Copyright by .., All Rights Reserved</p>
       </footer>
     </div>
   );

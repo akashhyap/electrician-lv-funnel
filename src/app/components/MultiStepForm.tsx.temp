@@ -1,0 +1,93 @@
+  const renderMainGoalStep = () => {
+    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    };
+
+    return (
+      <div className="w-full text-center">
+        <h2 className="text-[32px] font-bold mb-8 text-gray-800">What's your main goal with an EV charger right now?</h2>
+        
+        <div className="flex flex-wrap gap-4 mx-auto justify-center">
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.mainGoal === 'faster-charging' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="mainGoal" 
+                value="faster-charging"
+                checked={formData.mainGoal === 'faster-charging'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.mainGoal === 'faster-charging' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.mainGoal === 'faster-charging' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Faster charging at home</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.mainGoal === 'convenience' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="mainGoal" 
+                value="convenience"
+                checked={formData.mainGoal === 'convenience'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.mainGoal === 'convenience' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.mainGoal === 'convenience' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Adding convenience for daily use</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.mainGoal === 'new-ev' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="mainGoal" 
+                value="new-ev"
+                checked={formData.mainGoal === 'new-ev'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.mainGoal === 'new-ev' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.mainGoal === 'new-ev' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Preparing for a new EV purchase</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.mainGoal === 'business' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="mainGoal" 
+                value="business"
+                checked={formData.mainGoal === 'business'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.mainGoal === 'business' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.mainGoal === 'business' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Supporting employees/customers at a business</span>
+          </label>
+        </div>
+      </div>
+    );
+  };

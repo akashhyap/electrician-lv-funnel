@@ -1,0 +1,55 @@
+  const renderChargerGuidanceStep = () => {
+    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    };
+
+    return (
+      <div className="w-full text-center">
+        <h2 className="text-[32px] font-bold mb-8 text-gray-800">Would you like help choosing the right charger brand/model?</h2>
+        
+        <div className="flex flex-wrap gap-4 mx-auto justify-center">
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.chargerGuidance === 'yes' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="chargerGuidance" 
+                value="yes"
+                checked={formData.chargerGuidance === 'yes'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.chargerGuidance === 'yes' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.chargerGuidance === 'yes' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">Yes, please guide me</span>
+          </label>
+
+          <label className={`inline-flex items-center px-5 py-3 border rounded-full cursor-pointer transition-all ${formData.chargerGuidance === 'no' ? 'border-[#4CAF50] bg-green-50' : 'border-gray-300 hover:bg-gray-50'}`}>
+            <div className="relative flex items-center justify-center w-6 h-6 mr-3">
+              <input 
+                type="radio" 
+                name="chargerGuidance" 
+                value="no"
+                checked={formData.chargerGuidance === 'no'}
+                onChange={handleRadioChange}
+                className="opacity-0 absolute w-full h-full cursor-pointer z-10"
+              />
+              <div className={`w-5 h-5 border rounded-full transition-colors ${formData.chargerGuidance === 'no' ? 'border-[#4CAF50]' : 'border-gray-300'}`}>
+                {formData.chargerGuidance === 'no' && (
+                  <div className="w-3 h-3 bg-[#4CAF50] rounded-full m-[3px]"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-lg">No, I already know what I want</span>
+          </label>
+        </div>
+      </div>
+    );
+  };

@@ -1,0 +1,35 @@
+/* Standard @font-face declarations for Inter */
+@font-face {
+  font-family: 'Inter';
+  src: url('/Inter_24pt-Regular-subset.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/Inter_28pt-Bold-subset.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply fonts to elements */
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .font-bold, strong, b {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: bold;
+}
+
+/* Utility classes */
+.font-inter {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-bold {
+  font-weight: bold;
+}
