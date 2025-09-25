@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center min-h-screen bg-white">
       {/* Notification Banner */}
-      <div className="w-full bg-[#fef9e7] text-center py-2 px-4 flex items-center justify-center gap-2 md:gap-4 text-xs md:text-sm">
+      <div className="w-full bg-[#fef9e7] text-center py-2 px-4 flex items-center justify-center gap-1 text-xs md:text-sm">
         <span className="text-gray-600 hidden md:inline">•</span>
         <p>Free EV charging consultation - Schedule yours today!</p>
         <span className="text-gray-600 hidden md:inline">•</span>
